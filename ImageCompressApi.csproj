@@ -11,7 +11,7 @@
     <PackageReference Include="Imagekit" Version="4.0.1" />
     <PackageReference Include="itext7" Version="7.2.6" />
     <PackageReference Include="Libwebp.Net" Version="0.9.1" />
-    <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="13.5.0" />
+    <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="14.10.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.2" />
     <PackageReference Include="RestSharp" Version="110.2.0" />

@@ -1,12 +1,7 @@
-﻿namespace ImageCompressApi.Model;
+namespace ImageCompressApi.Model;
 
 public class QuestionModel
 {
-    public string Question { get; set; }
-    public Dictionary<string, string> Answers { get; set; }
-}
-
-public class UploadModel
-{
-    public IFormFile File { get; set; }
+    public string Question { get; set; } = string.Empty;
+    public Dictionary<string, string> Answers { get; set; } = [];
 }

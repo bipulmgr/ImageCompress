@@ -1,31 +1,26 @@
+using ImageCompressApi.Endpoints;
 using ImageCompressApi.Model;
 using ImageCompressApi.Services;
-using ImageCompressApi.Util;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen();
-
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });
-
-    c.OperationFilter<AddFileUploadParamsOperationFilter>();
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Image Compress API", Version = "v1" });
 });
 
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
+builder.Services.Configure<ImageKitSettings>(builder.Configuration.GetSection("ImageKitSettings"));
+builder.Services.Configure<SmsSettings>(builder.Configuration.GetSection("SmsSettings"));
+
 builder.Services.AddScoped<CloudinaryService>();
 builder.Services.AddSingleton<PdfService>();
+builder.Services.AddSingleton<ImageCompressionService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -34,8 +29,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
-
-app.MapControllers();
+app.MapImageCompressEndpoints();
+app.MapCloudinaryEndpoints();
+app.MapImageKitEndpoints();
+app.MapPdfEndpoints();
+app.MapSmsEndpoints();
 
 app.Run();

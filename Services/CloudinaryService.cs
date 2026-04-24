@@ -1,22 +1,18 @@
-﻿using CloudinaryDotNet;
+using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using ImageCompressApi.Model;
 using Microsoft.Extensions.Options;
 
 namespace ImageCompressApi.Services;
 
-
 public class CloudinaryService
 {
     private readonly Cloudinary _cloudinary;
 
-    public CloudinaryService(IOptions<CloudinarySettings> cloudinaryConfig)
+    public CloudinaryService(IOptions<CloudinarySettings> options)
     {
-        var account = new Account(
-            cloudinaryConfig.Value.CloudName,
-            cloudinaryConfig.Value.ApiKey,
-            cloudinaryConfig.Value.ApiSecret);
-
+        var cfg = options.Value;
+        var account = new Account(cfg.CloudName, cfg.ApiKey, cfg.ApiSecret);
         _cloudinary = new Cloudinary(account);
     }
 
@@ -24,17 +20,15 @@ public class CloudinaryService
     {
         var uploadParams = new ImageUploadParams
         {
-            Folder="Product",
+            Folder = "Product",
             File = new FileDescription(imagePath),
             Format = "webp"
         };
-
         return _cloudinary.Upload(uploadParams);
     }
 
     public void DeleteImage(string publicId)
     {
-        var deleteParams = new DeletionParams(publicId);
-        _cloudinary.Destroy(deleteParams);
+        _cloudinary.Destroy(new DeletionParams(publicId));
     }
 }

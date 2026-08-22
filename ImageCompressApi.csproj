@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CloudinaryDotNet" Version="1.29.2" />
+    <PackageReference Include="CloudinaryDotNet" Version="1.29.3" />
     <PackageReference Include="Imagekit" Version="6.3.0" />
     <PackageReference Include="itext7" Version="9.7.0" />
     <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="14.16.0" />

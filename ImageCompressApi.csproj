@@ -13,7 +13,7 @@
     <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="15.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.22" />
     <PackageReference Include="RestSharp" Version="114.1.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.3.1" />
   </ItemGroup>
 
 </Project>

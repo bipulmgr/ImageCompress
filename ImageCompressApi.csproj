@@ -11,7 +11,7 @@
     <PackageReference Include="Imagekit" Version="6.7.0" />
     <PackageReference Include="itext7" Version="9.8.0" />
     <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="15.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.22" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.23" />
     <PackageReference Include="RestSharp" Version="114.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="10.3.1" />
   </ItemGroup>
